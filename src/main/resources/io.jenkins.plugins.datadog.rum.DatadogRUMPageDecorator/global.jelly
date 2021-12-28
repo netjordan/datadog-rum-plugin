@@ -1,0 +1,23 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:section title="Datadog RUM Integration">
+    <f:entry title="Client Token" field="clientToken">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Application ID" field="applicationId">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Site" field="site">
+      <f:textbox default="datadoghq.com"/>
+    </f:entry>
+    <f:entry title="Service" field="service">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Sample Rate" field="sampleRate">
+      <f:textbox default="100" />
+    </f:entry>
+    <f:entry title="Session Recording" field="enableSessionReplay">
+      <f:checkbox />
+    </f:entry>
+  </f:section>
+</j:jelly>

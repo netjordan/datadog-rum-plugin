@@ -1,0 +1,33 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+	<j:if test="${it.clientToken!=null}">
+        <script>
+          (function(h,o,u,n,d) {
+            h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+            d=o.createElement(u);d.async=1;d.src=n
+            n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+          })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v3.js','DD_RUM')
+          DD_RUM.onReady(function() {
+            DD_RUM.init({
+              clientToken: '${it.clientToken}',
+              applicationId: '${it.applicationId}',
+              site: '${it.site}',
+              service:'${it.service}',
+              env:'${it.env}',
+              // Specify a version number to identify the deployed version of your application in Datadog
+              // version: '1.0.0',
+              sampleRate: ${it.sampleRate},
+              trackInteractions: true,
+              <j:if test="${it.enableSessionRecording==true}">
+              defaultPrivacyLevel: 'mask-user-input'
+              </j:if>
+            });
+            <j:if test="${it.enableSessionRecording==true}">
+            DD_RUM.startSessionReplayRecording();
+            </j:if>
+          })
+        </script>
+
+	</j:if>
+</j:jelly>
+
