@@ -18,11 +18,11 @@
               // version: '1.0.0',
               sampleRate: ${it.sampleRate},
               trackInteractions: true,
-              <j:if test="${it.enableSessionRecording==true}">
+              <j:if test="${it.enableSessionReplay}">
               defaultPrivacyLevel: 'mask-user-input'
               </j:if>
             });
-            <j:if test="${it.enableSessionRecording==true}">
+            <j:if test="${it.enableSessionReplay}">
             DD_RUM.startSessionReplayRecording();
             </j:if>
           })

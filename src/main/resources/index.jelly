@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    TODO
+    Injects the datadog real user monitoring code into all pages in jenkins.
 </div>
